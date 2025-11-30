@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تطبيقات إنترنت الأشياء والطاقة</title>
+  <style>
+    :root{
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --accent: #1366d6;
+    }
+    body{
+      font-family: Tahoma, sans-serif;
+      margin:0; padding:0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    body.dark{
+      --bg: #0f1113;
+      --card: #151618;
+      --text: #e6eef8;
+      --accent: #58a6ff;
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:14px 20px;
+      background: rgba(255,255,255,0.6); backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(12,15,20,0.05);
+      transition: background 0.3s;
+    }
+    body.dark header{ background: rgba(20,20,20,0.6); }
+
+    .left, .right{display:flex; align-items:center; gap:10px}
+
+    button.core{
+      border: none; padding:9px 14px; border-radius:10px; cursor:pointer;
+      background: var(--accent); color: white; font-weight:600;
+      box-shadow: 0 6px 12px rgba(19,102,214,0.15);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    button.core:active{ transform: translateY(1px); box-shadow:none }
+
+    .ghost{
+      background: transparent; color: var(--text); border-radius:10px; padding:8px 12px;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+
+    .container{ max-width:980px; margin:28px auto; padding:18px }
+
+    h1{ font-size:24px; margin:8px 0 }
+    p.lead{ color: rgba(0,0,0,0.6); margin:6px 0 0 0 }
+    body.dark p.lead{ color: rgba(255,255,255,0.65) }
+
+    .card{ background:var(--card); padding:22px; border-radius:16px; margin-top:20px;
+      box-shadow: 0 8px 24px rgba(12,15,20,0.04); transform-origin:center; opacity:0; transform: translateY(18px) scale(.995);
+      transition: box-shadow .25s, transform .35s, opacity .35s;
+    }
+    .card.hover{ box-shadow: 0 14px 40px rgba(12,15,20,0.08); transform: translateY(-4px) scale(1.002) }
+    body.dark .card{ box-shadow: 0 8px 28px rgba(0,0,0,0.45) }
+
+    .card.show{ opacity:1; transform: translateY(0) scale(1) }
+
+    ul{ padding-inline-start: 20px }
+
+    footer{ text-align:center; margin:30px 0 60px; color:rgba(0,0,0,0.55) }
+    body.dark footer{ color: rgba(255,255,255,0.6) }
+
+    /* small animation for language swap */
+    .fade-out{ opacity:0; transform: translateY(8px); transition: all .28s ease }
+    .fade-in{ opacity:1; transform: translateY(0); transition: all .28s ease }
+
+    /* responsive */
+    @media (max-width:640px){ header{ flex-direction:row-reverse } .left{order:2} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left">
+      <button class="core" id="langBtn">English</button>
+      <button class="ghost" id="themeBtn">الوضع الداكن</button>
+    </div>
+    <div class="right">
+      <div style="text-align:center">
+        <div id="topTitle"><strong>تطبيقات إنترنت الأشياء في مجال الطاقة</strong></div>
+        <div id="topSub" style="font-size:13px;color:rgba(0,0,0,0.6)">بحث بالتنسيق مع المعلم: أستاذ عبدالاله عبداللطيف الحربي</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="content">
+    <!-- Arabic default content -->
+    <h1>إنترنت الأشياء (IoT)</h1>
+    <div class="card show">
+      <p>إنترنت الأشياء هو مفهوم يهدف إلى ربط الأجهزة المتنوعة بالإنترنت لتمكينها من تبادل المعلومات تلقائيًا عبر حساسات وبرمجيات. تمكّن هذه التقنية من جمع بيانات لحظية، تحليلها، واتخاذ إجراءات ذكية — ما يؤدي إلى تحسين الكفاءة وتخفيض استهلاك الطاقة وزيادة الأمان.</p>
+      <p class="lead">يدخل IoT اليوم في المنازل الذكية، المدن الذكية، الصناعة، الصحة، وقطاع الطاقة.</p>
+    </div>
+
+    <h1>الشبكة الذكية (Smart Grid)</h1>
+    <div class="card show">
+      <p>الشبكة الذكية هي نسخة مطورة من الشبكة الكهربائية التقليدية، تعتمد على حساسات، تواصل لحظي، وأنظمة تحكم ذكية لإدارة إنتاج ونقل وتوزيع الطاقة بكفاءة عالية.</p>
+
+      <h3>فوائد الشبكة الذكية</h3>
+      <ul>
+        <li>تقليل الانقطاعات عبر اكتشاف الأعطال مبكرًا.</li>
+        <li>تحسين توزيع الطاقة ودمج مصادر متجددة.</li>
+        <li>إعطاء المستهلك بيانات استهلاك لحظية للتحكم بالتكاليف.</li>
+        <li>خفض الفاقد وزيادة الكفاءة التشغيلية.</li>
+      </ul>
+
+      <h3>دور إنترنت الأشياء</h3>
+      <p>تستخدم الشبكات الذكية حساسات وعدادات ذكية وأنظمة IoT لمراقبة الجهد والتيار، تشغيل الأجهزة تلقائيًا، وإرسال بيانات لتحليلات التنبؤ بالصيانة.</p>
+    </div>
+
+    <h1>استخدامات IoT في مصادر الطاقة</h1>
+    <div class="card show">
+      <h3>الطاقة الشمسية</h3>
+      <p>مراقبة أداء الألواح، إدارة الشحن في البطاريات، واكتشاف الأعطال لرفع كفاءة الإنتاج.</p>
+
+      <h3>طاقة الرياح</h3>
+      <p>حساسات تقيس سرعة الرياح واهتزاز التوربينات، وأنظمة ذكية لضبط زاوية الشفرات لزيادة الإنتاجية.</p>
+
+      <h3>الطاقة المائية</h3>
+      <p>مراقبة تدفق المياه ومستويات السدود وتحسين أداء التوربينات باستخدام بيانات لحظية.</p>
+    </div>
+
+    <h1>تطبيقات في السعودية</h1>
+    <div class="card show">
+      <h3>الشركة السعودية للكهرباء (SEC)</h3>
+      <p>تطبيق عدادات ذكية ومراقبة الأحمال وإدارة الانقطاعات بشكل أوتوماتيكي.</p>
+
+      <h3>وزارة الطاقة</h3>
+      <p>مشاريع لمراقبة وتحليل إنتاج الطاقة، ودعم دمج المتجددة.</p>
+
+      <h3>NEOM</h3>
+      <p>مدينة ذكية تخطط لبنية تحتية للطاقة تعتمد على حلول IoT وشبكات ذكية.</p>
+
+      <h3>مشاريع سكاكا ودومة الجندل</h3>
+      <p>تستخدم حساسات IoT لرفع كفاءة ألواح الشمسية وتوربينات الرياح.</p>
+    </div>
+
+    <h1>التحليل الشامل</h1>
+    <div class="card show">
+      <p>عند دمج IoT مع الشبكات الذكية نحقق: كفاءة أعلى، تكلفة تشغيل أقل، صيانة تنبؤية، أمان أفضل، وقدرة أكبر على استيعاب مصادر متجددة.</p>
+    </div>
+
+    <footer>
+      إعداد الطالب: <b>عبدالله أحمد الزيات</b> — الشعبة 6<br>
+      معلم المادة: <b>أستاذ عبدالاله عبداللطيف الحربي</b>
+    </footer>
+  </main>
+
+  <script>
+    // عناصر
+    const langBtn = document.getElementById('langBtn');
+    const themeBtn = document.getElementById('themeBtn');
+    const content = document.getElementById('content');
+    const topTitle = document.getElementById('topTitle');
+    const topSub = document.getElementById('topSub');
+
+    // حفظ النسخ العربية والإنجليزية (HTML داخل القالب)
+    const arHTML = content.innerHTML;
+
+    const enHTML = `
+      <h1>Internet of Things (IoT)</h1>
+      <div class="card show">
+        <p>The Internet of Things connects devices to the internet so they can exchange information automatically using sensors and software. IoT collects real-time data, analyzes it, and enables smart actions—improving efficiency, reducing energy use, and increasing safety.</p>
+        <p class="lead">IoT applications span smart homes, smart cities, industry, healthcare, and the energy sector.</p>
+      </div>
+
+      <h1>Smart Grid</h1>
+      <div class="card show">
+        <p>The Smart Grid is an upgraded electrical grid using sensors and digital technologies to manage generation, transmission, and distribution more efficiently.</p>
+        <h3>Benefits</h3>
+        <ul>
+          <li>Fewer outages through early fault detection.</li>
+          <li>Better energy distribution and integration of renewables.</li>
+          <li>Real-time consumption data for consumers.</li>
+          <li>Reduced losses and improved operational efficiency.</li>
+        </ul>
+        <h3>IoT Role</h3>
+        <p>IoT uses smart meters and sensors to monitor voltage and load, automate equipment, and predict failures using analytics.</p>
+      </div>
+
+      <h1>IoT in Energy Sources</h1>
+      <div class="card show">
+        <h3>Solar Energy</h3>
+        <p>Monitoring panels, managing battery charge, and detecting faults to improve output.</p>
+        <h3>Wind Energy</h3>
+        <p>Sensors track wind speed and vibration; control systems optimize turbine blades.</p>
+        <h3>Hydro Energy</h3>
+        <p>Monitor water flow, turbine performance, and dam levels using real-time data.</p>
+      </div>
+
+      <h1>Applications in Saudi Arabia</h1>
+      <div class="card show">
+        <h3>Saudi Electricity Company (SEC)</h3>
+        <p>Smart meters, load monitoring, and automated outage management.</p>
+        <h3>Ministry of Energy</h3>
+        <p>Projects to analyze energy production and consumption and to support renewables.</p>
+        <h3>NEOM</h3>
+        <p>A connected smart city deploying renewable energy and IoT solutions.</p>
+        <h3>Sakaka & Dumat Al-Jandal Projects</h3>
+        <p>Use IoT sensors to boost solar and wind project efficiency.</p>
+      </div>
+
+      <h1>Analysis</h1>
+      <div class="card show">
+        <p>Combining IoT with smart grids yields higher efficiency, lower costs, predictive maintenance, better safety, and greater renewable integration.</p>
+      </div>
+
+      <footer>
+        Student: <b>Abdullah Ahmed Al-Zayyat</b> — Class 6<br>
+        Teacher: <b>Mr. Abdulilah Abdullatif Al-Harbi</b>
+      </footer>
+    `;
+
+    // لغة ابتدائية
+    document.documentElement.lang = 'ar';
+    document.documentElement.dir = 'rtl';
+
+    // دالة تبديل اللغة مع أنيميشن بسيط (JS animation)
+    langBtn.addEventListener('click', () => {
+      // fade out
+      content.classList.add('fade-out');
+      setTimeout(() => {
+        if (document.documentElement.lang === 'ar'){
+          document.documentElement.lang = 'en';
+          document.documentElement.dir = 'ltr';
+          langBtn.textContent = 'العربية';
+          topTitle.innerText = 'IoT Applications in the Energy Sector';
+          topSub.innerText = 'Prepared in coordination with: Mr. Abdulilah Abdullatif Al-Harbi';
+          content.innerHTML = enHTML;
+        } else {
+          document.documentElement.lang = 'ar';
+          document.documentElement.dir = 'rtl';
+          langBtn.textContent = 'English';
+          topTitle.innerText = 'تطبيقات إنترنت الأشياء في مجال الطاقة';
+          topSub.innerText = 'بحث بالتنسيق مع المعلم: أستاذ عبدالاله عبداللطيف الحربي';
+          content.innerHTML = arHTML;
+        }
+        // small reveal animation: add .fade-in then remove classes after
+        content.classList.remove('fade-out');
+        content.classList.add('fade-in');
+        setTimeout(()=> content.classList.remove('fade-in'), 350);
+        // re-run entry animations for cards
+        runEntryAnimation();
+      }, 260);
+    });
+
+    // تبديل الثيم مع أنيميشن تغيير الالوان
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeBtn.textContent = document.body.classList.contains('dark') ? 'الوضع الفاتح' : 'الوضع الداكن';
+    });
+
+    // entry animation: reveal cards one by one
+    function runEntryAnimation(){
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((c, i)=>{
+        c.classList.remove('show');
+        setTimeout(()=> c.classList.add('show'), 80 * i);
+      });
+    }
+
+    // On load run animation
+    window.addEventListener('load', ()=>{
+      runEntryAnimation();
+    });
+
+    // small hover effect for desktop
+    document.addEventListener('mouseover', e =>{
+      const card = e.target.closest('.card');
+      if(card) card.classList.add('hover');
+    });
+    document.addEventListener('mouseout', e =>{
+      const card = e.target.closest('.card');
+      if(card) card.classList.remove('hover');
+    });
+  </script>
+</body>
+</html>
